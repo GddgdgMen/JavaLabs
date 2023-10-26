@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 
 public class lab1 {
     public static void main(String [] args) {
-        long a = 2;
+        long a = 1;
         long b = 3;
         int c = 1;
         long i;
@@ -16,7 +16,7 @@ public class lab1 {
 
         if (n < a || m < b ) {
             System.out.println("Incorrect values");
-        } else if (a < -c && n > -c) {
+        } else if (a <= -c && n >= -c) {
             System.out.println("Example contains division by zero");
         } else {
             for (i = a; i < n; i++) {
