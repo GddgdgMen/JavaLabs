@@ -1,11 +1,12 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Lab2 {
     public static void main(String[] args) {
         int[][] matrix1 = {
-                {1, 8, 2},
+                {1, 8, 2, -1},
                 {4, 9, 7, 3},
-                {8, 5, 2, 10},
+                {8, -5, 2, 10},
                 {7, 3, 4}
         };
         int[][] matrix2 = {
@@ -53,18 +54,25 @@ public class Lab2 {
             }
             System.out.println();
         }
-        int[] maxValues = maxElement(matrix3);
+        int[] maxValues = maxAndMin(matrix3);
         System.out.println(Arrays.toString(maxValues));
     }
-    public static int[] maxElement(int[][] matrix){
+
+    public static int[] maxAndMin(int[][] matrix) {
         int[] out = new int[matrix.length];
 
-        for (int i = 0; i < matrix.length; i++){
+        for (int i = 0; i < matrix.length; i++) {
             int max = Integer.MIN_VALUE;
-            for (int j = 0; j < matrix[i].length; j++){
-                max = Math.max(max, matrix[i][j]);
+            int min = Integer.MAX_VALUE;
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (i % 2 == 0) {
+                    min = Math.min(min, matrix[i][j]);
+                    out[i] = min;
+                } else {
+                    max = Math.max(max, matrix[i][j]);
+                    out[i] = max;
+                }
             }
-            out[i] = max;
         }
         return out;
     }
