@@ -1,6 +1,5 @@
 package org.example;
 
-import java.lang.reflect.Type;
 
 public class lab1 {
     public static void main(String [] args) {
@@ -9,8 +8,8 @@ public class lab1 {
         int c = 1;
         long i;
         long j;
-        long n = 7;
-        long m = 9;
+        long n = 5;
+        long m = 7;
         long result = 0;
 
 
