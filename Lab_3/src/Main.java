@@ -1,29 +1,28 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         StringBuffer inputText = new StringBuffer("Aaron bridge. shepherd? Yonex. Obstacle! Wrex.");
 
-        String[] words = inputText.toString().split("\\s+");
-        List<String> vowelWords = new ArrayList<>();
+        StringBuffer result = sortWordsBySecondLetter(inputText);
 
-        for (String word : words) {
-            if (!word.isEmpty() && isVowel(word.charAt(0))) {
-                vowelWords.add(word);
-            }
-        }
-
-        vowelWords.sort(Comparator.comparingInt(a -> a.charAt(1)));
-
-        System.out.println("Sorted words: ");
-        for (String word : vowelWords) {
-            System.out.println(word);
-        }
+        System.out.println("Sorted words " + result);
     }
 
-    private static boolean isVowel(char c) {
-        return "aeiouAEIOU".indexOf(c) != -1;
+    private static StringBuffer sortWordsBySecondLetter(StringBuffer inputText) {
+        String[] words = inputText.toString().split("\\s+");
+
+        StringBuffer result = new StringBuffer();
+        Arrays.stream(words)
+                .filter(word -> word.length() > 1 && isVowel(word.charAt(0)))
+                .sorted(Comparator.comparingInt(word -> word.charAt(1)))
+                .forEach(word -> result.append(word).append(" "));
+
+        return result;
+    }
+
+    private static boolean isVowel(char ch) {
+        return "aeiouAEIOU".indexOf(ch) != -1;
     }
 }
