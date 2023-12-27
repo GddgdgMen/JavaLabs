@@ -91,10 +91,6 @@ public class Main {
         return processed.toArray(new TextProcessor[0]);
     }
 
-    public static Word createWord(Letter[] letters) {
-        return new Word(letters);
-    }
-
     public static List<Word> textToWords(Text text){
         List<Word> words = new ArrayList<>();
 
@@ -108,6 +104,10 @@ public class Main {
 
         return words;
     }
+    public static Word createWord(Letter[] letters) {
+        return new Word(letters);
+    }
+
 
     public static List<Word> vowelWords(List<Word> words){
         Map<String, Word> vowWordMap = new LinkedHashMap<>();
@@ -121,12 +121,13 @@ public class Main {
         return new ArrayList<>(vowWordMap.values());
     }
 
+    private static boolean isVowel(char ch) {
+        return "aeiouAEIOU".indexOf(ch) != -1;
+    }
+
     public static void printer (TextProcessor[] array){
         for (TextProcessor processor : array){
             System.out.print(processor.toString() + "\n");
         }
-    }
-    private static boolean isVowel(char ch) {
-        return "aeiouAEIOU".indexOf(ch) != -1;
     }
 }
