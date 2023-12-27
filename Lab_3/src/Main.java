@@ -3,7 +3,7 @@ import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
-        StringBuffer inputText = new StringBuffer("Aaron bridge. shepherd? Yonex. Obstacle! Wrex.");
+        StringBuffer inputText = new StringBuffer("Aaron bridge. shepherd? onex. Obstacle! Wrex.");
 
         StringBuffer result = sortWordsBySecondLetter(inputText);
 
